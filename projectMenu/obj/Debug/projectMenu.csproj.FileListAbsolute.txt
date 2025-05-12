@@ -1,0 +1,7 @@
+C:\Users\User\source\repos\projectMenu\projectMenu\bin\Debug\projectMenu.exe.config
+C:\Users\User\source\repos\projectMenu\projectMenu\bin\Debug\projectMenu.exe
+C:\Users\User\source\repos\projectMenu\projectMenu\bin\Debug\projectMenu.pdb
+C:\Users\User\source\repos\projectMenu\projectMenu\obj\Debug\projectMenu.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\projectMenu\projectMenu\obj\Debug\projectMenu.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\projectMenu\projectMenu\obj\Debug\projectMenu.exe
+C:\Users\User\source\repos\projectMenu\projectMenu\obj\Debug\projectMenu.pdb
