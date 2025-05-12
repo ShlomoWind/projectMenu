@@ -8,12 +8,25 @@ namespace projectMenu
 {
     internal class Program
     {
-        static bool IsNumbers()            //מחזיר האם כל האלמנטים הם מספרים
+        static bool IsNumbers(string[] series)            //מחזיר האם כל האלמנטים הם מספרים
         {
-
         }
-        static void ThreePositive()            //מחזיר האם יש לפחות שלושה מספרים חיוביים
+        static bool ThreePositive(int[] series)            //מחזיר האם יש לפחות שלושה מספרים חיוביים
         {
+            int cunt = 0;
+            foreach(int number in series)
+            {
+                if (cunt == 3)
+                {
+                    return true;
+                    break;
+                }
+                else if (number > 0)
+                {
+                    cunt++;
+                }
+            }
+            return false;
         }
         static void InputSeries()            //בקשה מהמשתמש לסדרה שתדרוס את הסדרה הקיימת והמחזיר את הסדרה שהוא הכניס
         {
