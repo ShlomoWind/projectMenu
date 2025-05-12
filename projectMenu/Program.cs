@@ -8,8 +8,9 @@ namespace projectMenu
 {
     internal class Program
     {
-        static void IsNumbers()            //מחזיר האם כל האלמנטים הם מספרים
+        static bool IsNumbers()            //מחזיר האם כל האלמנטים הם מספרים
         {
+
         }
         static void ThreePositive()            //מחזיר האם יש לפחות שלושה מספרים חיוביים
         {
