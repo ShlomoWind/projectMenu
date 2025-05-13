@@ -10,6 +10,20 @@ namespace projectMenu
     {
         static bool IsNumbers(string[] series)            //מחזיר האם כל האלמנטים הם מספרים
         {
+            bool IsNum = true;
+            foreach (string word in series)
+            {
+                try
+                    {
+                    Convert.ToInt32(word); 
+                    }
+                catch
+                {
+                    IsNum = false;
+                    break;
+                }
+            }
+            return IsNum;
         }
         static bool ThreePositive(int[] series)            //מחזיר האם יש לפחות שלושה מספרים חיוביים
         {
