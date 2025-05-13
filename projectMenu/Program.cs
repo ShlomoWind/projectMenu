@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace projectMenu
 {
     internal class Program
     {
-        static string String = "1 2 3 4 5 6";
+        static string String;
         static string[] stringArray = CangeToStrArray(String);
         static int[] intArray = CangeToIntArray(stringArray);
         static string[] CangeToStrArray(string strInput)             //ממיר את הסטרינג שקיבל למערך מסוג סטרינג
@@ -74,7 +75,7 @@ namespace projectMenu
                     ReversSeries(stringArray);
                     break;
                 case "d":
-                    SortedSeries();
+                    SortedSeries(intArray);
                     break;
                 case "e":
                     HighestNumber();
@@ -101,7 +102,7 @@ namespace projectMenu
             }
 
         }
-        static void InputSeries()            //בקש מהמשתמש סדרה שתדרוס את הסדרה הקיימת ותחזיר את הסדרה שהוא הכניס
+        static void InputSeries()            // בקש מהמשתמש סדרה שתדרוס את הסדרה הקיימת ותחזיר את הסדרה שהוא הכניס למשתנה הסטרינג
         {
             Console.WriteLine("enter some numbers");
             string myString = Console.ReadLine();
@@ -115,28 +116,34 @@ namespace projectMenu
                 Menu();
             }
         }
-        static void ShowSeries(string stringToShow)            //מחזיר את הסדרה בסדר הנכון
+        static void ShowSeries(string stringToShow)            //מדפיס את הסדרה בסדר הנכון
         {
             Console.WriteLine(stringToShow);
         }
-        static void ReversSeries(string[] arrayToShow)            //מחזיר את הסדרה בסדר ההפוך
+        static void ReversSeries(string[] arrayToShow)            //מדפיס את הסדרה בסדר ההפוך
         {
             for (int i = arrayToShow.Length-1; i >= 0; i--)
             {
                 Console.Write(arrayToShow[i]);
             }
         }
-        static void SortedSeries()            //מחזיר את הסדרה בסדר מהקטן לגדול
+        static void SortedSeries(int[] intArr)            //מדפיס את הסדרה בסדר מהקטן לגדול
         {
-            Console.WriteLine("d");
+            Array.Sort(intArr);
+            foreach (int i in intArr)
+            {
+                Console.WriteLine(i);
+            }
         }
-        static void HighestNumber()            //מחזיר את המספר הגבוה ביותר
+        static void HighestNumber(int[] intArr)            //מדפיס את המספר הגבוה ביותר
         {
-            Console.WriteLine("e");
+            SortedSeries(intArr);
+            Console.WriteLine(intArr[intArr.Length-1]);
         }
-        static void LowestNumber()            //מחזיר את המספר הנמוך ביותר
+        static void LowestNumber(int[] intArr)            //מחזיר את המספר הנמוך ביותר
         {
-            Console.WriteLine("f");
+            SortedSeries(intArr);
+            Console.WriteLine(intArr[0]);
         }
         static void AverageNumber()            //מחזיר את הממוצע של כל המספרים
         {
@@ -156,7 +163,6 @@ namespace projectMenu
         }
         static void Main(string[] args)
         {
-            Menu();
         }
     }
 }
