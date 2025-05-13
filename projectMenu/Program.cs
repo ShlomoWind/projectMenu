@@ -9,14 +9,9 @@ namespace projectMenu
 {
     internal class Program
     {
-        static string String;
-        static string[] stringArray = CangeToStrArray(String);
-        static int[] intArray = CangeToIntArray(stringArray);
-        static string[] CangeToStrArray(string strInput)             //ממיר את הסטרינג שקיבל למערך מסוג סטרינג
-        {
-            string[] output = strInput.Split(' ');
-            return output;
-        }
+        static string[] stringArray;
+        static int[] intArray;
+
         static bool IsNumbers(string[] series)            //מחזיר האם כל האלמנטים הם מספרים
         {
             bool IsNum = true;
@@ -69,10 +64,10 @@ namespace projectMenu
                     InputSeries();
                     break;
                 case "b":
-                    ShowSeries(String);
+                    ShowSeries(intArray);
                     break;
                 case "c":
-                    ReversSeries(stringArray);
+                    ReversSeries(intArray);
                     break;
                 case "d":
                     SortedSeries(intArray);
@@ -96,6 +91,7 @@ namespace projectMenu
                     Exit();
                     break;
                 default:
+                    Console.WriteLine("Wrong choice, try again:");
                     Menu();
                     break;
 
@@ -106,25 +102,28 @@ namespace projectMenu
         {
             Console.WriteLine("enter some numbers");
             string myString = Console.ReadLine();
-            string[] myStrArr = CangeToStrArray(myString);
-            if (IsNumbers(myStrArr))
+            string[] myStrArray = myString.Split(' ');
+            if (IsNumbers(myStrArray))
             {
-               String = myString;
+               stringArray = myStrArray;
             }
             else
             {
                 Menu();
             }
         }
-        static void ShowSeries(string stringToShow)            //מדפיס את הסדרה בסדר הנכון
+        static void ShowSeries(int[] intArr)            //מדפיס את הסדרה לפי הסדר המקורי
         {
-            Console.WriteLine(stringToShow);
-        }
-        static void ReversSeries(string[] arrayToShow)            //מדפיס את הסדרה בסדר ההפוך
-        {
-            for (int i = arrayToShow.Length-1; i >= 0; i--)
+            for (int i = 0; i < intArr.Length; i++)
             {
-                Console.Write(arrayToShow[i]);
+                Console.Write(intArr[i]);
+            }
+        }
+        static void ReversSeries(int[] intArr)            //מדפיס את הסדרה בסדר ההפוך
+        {
+            for (int i = intArr.Length-1; i >= 0; i--)
+            {
+                Console.Write(intArr[i]);
             }
         }
         static void SortedSeries(int[] intArr)            //מדפיס את הסדרה בסדר מהקטן לגדול
