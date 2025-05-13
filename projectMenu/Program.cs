@@ -101,11 +101,19 @@ namespace projectMenu
             }
 
         }
-        static string InputSeries()            //בקש מהמשתמש סדרה שתדרוס את הסדרה הקיימת ותחזיר את הסדרה שהוא הכניס
+        static void InputSeries()            //בקש מהמשתמש סדרה שתדרוס את הסדרה הקיימת ותחזיר את הסדרה שהוא הכניס
         {
             Console.WriteLine("enter some numbers");
-            String = Console.ReadLine();
-            return String;
+            string myString = Console.ReadLine();
+            string[] myStrArr = CangeToStrArray(myString);
+            if (IsNumbers(myStrArr))
+            {
+               String = myString;
+            }
+            else
+            {
+                Menu();
+            }
         }
         static void ShowSeries(string stringToShow)            //מחזיר את הסדרה בסדר הנכון
         {
