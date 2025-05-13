@@ -9,8 +9,8 @@ namespace projectMenu
     internal class Program
     {
         static string String = "1 2 3 4 5 6";
-        static string[] stringArray;
-        static int[] intArray;
+        static string[] stringArray = CangeToStrArray(String);
+        static int[] intArray = CangeToIntArray(stringArray);
         static string[] CangeToStrArray(string strInput)             //ממיר את הסטרינג שקיבל למערך מסוג סטרינג
         {
             string[] output = strInput.Split(' ');
@@ -71,7 +71,7 @@ namespace projectMenu
                     ShowSeries(String);
                     break;
                 case "c":
-                    ReversSeries();
+                    ReversSeries(stringArray);
                     break;
                 case "d":
                     SortedSeries();
@@ -111,9 +111,12 @@ namespace projectMenu
         {
             Console.WriteLine(stringToShow);
         }
-        static void ReversSeries()            //מחזיר את הסדרה בסדר ההפוך
+        static void ReversSeries(string[] arrayToShow)            //מחזיר את הסדרה בסדר ההפוך
         {
-            Console.WriteLine("c");
+            for (int i = arrayToShow.Length-1; i >= 0; i--)
+            {
+                Console.Write(arrayToShow[i]);
+            }
         }
         static void SortedSeries()            //מחזיר את הסדרה בסדר מהקטן לגדול
         {
