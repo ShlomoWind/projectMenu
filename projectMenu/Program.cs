@@ -11,7 +11,7 @@ namespace projectMenu
     {
         static string[] stringArray;
         static int[] intArray;
-
+        static string KeyPress;
         static bool IsNumbers(string[] series)            //מחזיר האם כל האלמנטים הם מספרים
         {
             bool IsNum = true;
@@ -57,8 +57,9 @@ namespace projectMenu
         }
         static void Menu()                 //מציג את התפריט
         {
-            Console.WriteLine("enter your choose: \na. to input a series \nb. to display the series \nc. to display the series in revers \nd. to display sorted seriec \ne. to display the max number \nf. to display the min number \ng. to display the average \nh. to display the number of elements \ni. to display the sum of the numbers \nj. to exit");
-            switch (Console.ReadLine())
+            Console.WriteLine("enter your choose: \na. to input a series \nb. to display the series \nc. to display the series in revers \nd. to display sorted seriec \ne. to display the max number \nf. to display the min number \ng. to display the average \nh. to display the number of elements \ni. to display the sum of the numbers \nj. to exit \n\n");
+            KeyPress = Console.ReadLine();
+            switch (KeyPress)
             {
                 case "a":
                     InputSeries();
@@ -100,12 +101,13 @@ namespace projectMenu
         }
         static void InputSeries()            // בקש מהמשתמש סדרה שתדרוס את הסדרה הקיימת ותחזיר את הסדרה שהוא הכניס למשתנה הסטרינג
         {
-            Console.WriteLine("enter some numbers");
+            Console.WriteLine("\n\n enter some numbers");
             string myString = Console.ReadLine();
             string[] myStrArray = myString.Split(' ');
             if (IsNumbers(myStrArray))
             {
                stringArray = myStrArray;
+               intArray= CangeToIntArray(stringArray);
             }
             else
             {
@@ -167,6 +169,19 @@ namespace projectMenu
         }
         static void Main(string[] args)
         {
+            if(args.Length > 0)
+            {
+                intArray = CangeToIntArray(args);
+            }
+            else
+            {
+                InputSeries();
+            }
+            do
+            {
+                Menu();
+            }
+            while (KeyPress != "j");
         }
     }
 }
