@@ -8,7 +8,7 @@ namespace projectMenu
 {
     internal class Program
     {
-        static string String = "";
+        static string String = "1 2 3 4 5 6";
         static string[] stringArray;
         static int[] intArray;
         static string[] CangeToStrArray(string strInput)             //ממיר את הסטרינג שקיבל למערך מסוג סטרינג
@@ -68,7 +68,7 @@ namespace projectMenu
                     InputSeries();
                     break;
                 case "b":
-                    ShowSeries();
+                    ShowSeries(String);
                     break;
                 case "c":
                     ReversSeries();
@@ -107,9 +107,9 @@ namespace projectMenu
             String = Console.ReadLine();
             return String;
         }
-        static void ShowSeries()            //מחזיר את הסדרה בסדר הנכון
+        static void ShowSeries(string stringToShow)            //מחזיר את הסדרה בסדר הנכון
         {
-            Console.WriteLine("b");
+            Console.WriteLine(stringToShow);
         }
         static void ReversSeries()            //מחזיר את הסדרה בסדר ההפוך
         {
@@ -145,8 +145,7 @@ namespace projectMenu
         }
         static void Main(string[] args)
         {
-            string strinddd=InputSeries();
-            Console.WriteLine(strinddd);
+            Menu();
         }
     }
 }
