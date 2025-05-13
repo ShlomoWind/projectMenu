@@ -138,12 +138,12 @@ namespace projectMenu
         }
         static void HighestNumber(int[] intArr)            //מדפיס את המספר הגבוה ביותר
         {
-            SortedSeries(intArr);
-            Console.WriteLine(intArr[intArr.Length-1]);
+            Array.Sort(intArr);
+            Console.WriteLine(intArr[intArray.Length-1]);
         }
         static void LowestNumber(int[] intArr)            //מדפיס את המספר הנמוך ביותר
         {
-            SortedSeries(intArr);
+            Array.Sort(intArr);
             Console.WriteLine(intArr[0]);
         }
         static void AverageNumber(int[] intArr)            //מדפיס את הממוצע של כל המספרים
