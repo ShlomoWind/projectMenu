@@ -42,6 +42,20 @@ namespace projectMenu
             }
             return false;
         }
+        static string[] CangeToStrArray(string strInput)             //ממיר את הסטרינג שקיבל למחרוזת מסוג סטרינג
+        {
+            string[] output = strInput.Split(' ');
+            return output;
+        }
+        static int[] CangeToIntArray(string[] strings)          //ממיר מערך מסוג סטרינג למערך מסוג אינט
+        {
+            int[] output = new int[strings.Length];
+            for (int i = 0; i < strings.Length; i++)
+            {
+                output[i] = Convert.ToInt32(strings[i]);
+            }
+            return output;
+        }
         static void Menu()            //מציג את התפריט
         {
             Console.WriteLine("enter your choose: \na. to input a series \nb. to display the series \nc. to display the series in revers \nd. to display sorted seriec \ne. to display the max number \nf. to display the min number \ng. to display the average \nh. to display the number of elements \ni. to display the sum of the numbers \nj. to exit");
