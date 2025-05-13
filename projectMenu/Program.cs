@@ -78,19 +78,19 @@ namespace projectMenu
                     SortedSeries(intArray);
                     break;
                 case "e":
-                    HighestNumber();
+                    HighestNumber(intArray);
                     break;
                 case "f":
-                    LowestNumber();
+                    LowestNumber(intArray);
                     break;
                 case "g":
-                    AverageNumber();
+                    AverageNumber(intArray);
                     break;
                 case "h":
-                    ElementsNumber();
+                    Console.WriteLine(ElementsNumber(intArray));
                     break;
                 case "i":
-                    SumNumber();
+                    Console.WriteLine(SumNumber(intArray));
                     break;
                 case "j":
                     Exit();
@@ -140,26 +140,31 @@ namespace projectMenu
             SortedSeries(intArr);
             Console.WriteLine(intArr[intArr.Length-1]);
         }
-        static void LowestNumber(int[] intArr)            //מחזיר את המספר הנמוך ביותר
+        static void LowestNumber(int[] intArr)            //מדפיס את המספר הנמוך ביותר
         {
             SortedSeries(intArr);
             Console.WriteLine(intArr[0]);
         }
-        static void AverageNumber()            //מחזיר את הממוצע של כל המספרים
+        static void AverageNumber(int[] intArr)            //מדפיס את הממוצע של כל המספרים
         {
-            Console.WriteLine("g");
+            Console.WriteLine((SumNumber(intArr)) / Convert.ToDouble(intArr.Length));
         }
-        static void ElementsNumber()            //מחזיר את מספר האלמנטים הקיימים ברשימה
+        static int ElementsNumber(int[] intArr)            //מחזיר את מספר האלמנטים הקיימים ברשימה
         {
-            Console.WriteLine("h");
+            return intArr.Length;
         }
-        static void SumNumber()            //מחזיר את הסכום של כל המספרים שברשימה
+        static int SumNumber(int[] intArr)            //מחזיר את הסכום של כל המספרים שברשימה
         {
-            Console.WriteLine("i");
+            int count = 0;
+            foreach (int i in intArr)
+            {
+                count += i;
+            }
+            return count;
         }
-        static void Exit()            //מחזיר כיתוב יצאת בהצלחה
+        static void Exit()            //מדפיס כיתוב יצאת בהצלחה
         {
-            Console.WriteLine("j");
+            Console.WriteLine("You left successfully!");
         }
         static void Main(string[] args)
         {
