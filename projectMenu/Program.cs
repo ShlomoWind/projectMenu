@@ -8,6 +8,14 @@ namespace projectMenu
 {
     internal class Program
     {
+        static string String = "";
+        static string[] stringArray;
+        static int[] intArray;
+        static string[] CangeToStrArray(string strInput)             //ממיר את הסטרינג שקיבל למערך מסוג סטרינג
+        {
+            string[] output = strInput.Split(' ');
+            return output;
+        }
         static bool IsNumbers(string[] series)            //מחזיר האם כל האלמנטים הם מספרים
         {
             bool IsNum = true;
@@ -24,6 +32,15 @@ namespace projectMenu
                 }
             }
             return IsNum;
+        }
+        static int[] CangeToIntArray(string[] strings)          //ממיר מערך מסוג סטרינג למערך מסוג אינט
+        {
+            int[] output = new int[strings.Length];
+            for (int i = 0; i < strings.Length; i++)
+            {
+                output[i] = Convert.ToInt32(strings[i]);
+            }
+            return output;
         }
         static bool ThreePositive(int[] series)            //מחזיר האם יש לפחות שלושה מספרים חיוביים
         {
@@ -42,21 +59,7 @@ namespace projectMenu
             }
             return false;
         }
-        static string[] CangeToStrArray(string strInput)             //ממיר את הסטרינג שקיבל למחרוזת מסוג סטרינג
-        {
-            string[] output = strInput.Split(' ');
-            return output;
-        }
-        static int[] CangeToIntArray(string[] strings)          //ממיר מערך מסוג סטרינג למערך מסוג אינט
-        {
-            int[] output = new int[strings.Length];
-            for (int i = 0; i < strings.Length; i++)
-            {
-                output[i] = Convert.ToInt32(strings[i]);
-            }
-            return output;
-        }
-        static void Menu()            //מציג את התפריט
+        static void Menu()                 //מציג את התפריט
         {
             Console.WriteLine("enter your choose: \na. to input a series \nb. to display the series \nc. to display the series in revers \nd. to display sorted seriec \ne. to display the max number \nf. to display the min number \ng. to display the average \nh. to display the number of elements \ni. to display the sum of the numbers \nj. to exit");
             switch (Console.ReadLine())
@@ -98,9 +101,11 @@ namespace projectMenu
             }
 
         }
-        static void InputSeries()            //בקשה מהמשתמש לסדרה שתדרוס את הסדרה הקיימת והמחזיר את הסדרה שהוא הכניס
+        static string InputSeries()            //בקש מהמשתמש סדרה שתדרוס את הסדרה הקיימת ותחזיר את הסדרה שהוא הכניס
         {
-            Console.WriteLine("a");
+            Console.WriteLine("enter some numbers");
+            String = Console.ReadLine();
+            return String;
         }
         static void ShowSeries()            //מחזיר את הסדרה בסדר הנכון
         {
@@ -140,6 +145,8 @@ namespace projectMenu
         }
         static void Main(string[] args)
         {
+            string strinddd=InputSeries();
+            Console.WriteLine(strinddd);
         }
     }
 }
